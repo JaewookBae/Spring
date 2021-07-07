@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Tue Jul 06 16:08:01 KST 2021
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\cook_\\.m2\\repository\\org\\springframework\\spring-web\\5.0.7.RELEASE\\spring-web-5.0.7.RELEASE.jar=C\:\\tomcat9046\\wtpwebapps\\TestSpringApi\\WEB-INF\\lib\\spring-web-5.0.7.RELEASE.jar
+org.eclipse.jst.jee.server\:TestSpringApi=C\:\\tomcat9046\\wtpwebapps\\TestSpringApi

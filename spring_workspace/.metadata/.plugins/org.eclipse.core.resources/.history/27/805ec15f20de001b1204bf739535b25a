@@ -1,0 +1,23 @@
+package com.ja.test.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class MemberController {
+	//리턴 타입 기준..String
+	@RequestMapping("/member/test1.do")
+	public String test1() {
+		
+		return "abcd";
+	}
+	@RequestMapping("/member/test2.do")
+	public void test2() {
+		
+	}
+	
+	@RequestMapping("/member/loginPage.do")
+	public void loginPage() {
+		System.out.println("로그인 관련 로직...");
+	}
+}

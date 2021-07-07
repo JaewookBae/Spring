@@ -1,0 +1,5 @@
+package com.ja.test.controller;
+
+public class MemberController {
+
+}

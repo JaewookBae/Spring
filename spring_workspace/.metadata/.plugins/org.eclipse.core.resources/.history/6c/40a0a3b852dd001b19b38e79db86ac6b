@@ -1,0 +1,22 @@
+package polymorphism;
+
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+public class User {
+
+	public static void main(String[] args) {
+		//Spring Container 가동
+		GenericXmlApplicationContext container = new GenericXmlApplicationContext("tttt.xml");
+		
+		
+		/*
+		TV tv = new LgTV();
+		
+		tv.powerOn();
+		tv.powerOff();
+		tv.volumeUp();
+		tv.volumeDown();
+		*/
+	}
+
+}

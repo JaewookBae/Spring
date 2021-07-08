@@ -7,3 +7,9 @@
 7월 06, 2021 14:00:56.455 [14712:240:0706/140056.454:ERROR:connection_factory_impl.cc(429)] Failed to connect to MCS endpoint with error -105
 7월 06, 2021 15:03:01.799 [2692:17376:0706/150301.799:ERROR:device_event_log_impl.cc(214)] [15:03:01.799] USB: usb_device_handle_win.cc:1058 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
 7월 06, 2021 15:03:01.801 [2692:17376:0706/150301.801:ERROR:device_event_log_impl.cc(214)] [15:03:01.801] USB: usb_device_handle_win.cc:1058 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+
+7월 07, 2021 11:16:05.740 NEW SESSION
+7월 07, 2021 11:16:05.740 [9136:13300:0707/111605.728:ERROR:device_event_log_impl.cc(214)] [11:16:05.728] Bluetooth: bluetooth_adapter_winrt.cc:1072 Getting Default Adapter failed.
+7월 07, 2021 11:20:19.690 [7228:8608:0707/112019.689:ERROR:device_event_log_impl.cc(214)] [11:20:19.690] Bluetooth: bluetooth_adapter_winrt.cc:1072 Getting Default Adapter failed.
+7월 07, 2021 12:26:55.411 [7228:8608:0707/122655.410:ERROR:device_event_log_impl.cc(214)] [12:26:55.411] Bluetooth: bluetooth_adapter_winrt.cc:1072 Getting Default Adapter failed.
+7월 07, 2021 15:55:27.533 [10256:5512:0707/155527.533:ERROR:device_event_log_impl.cc(214)] [15:55:27.533] Bluetooth: bluetooth_adapter_winrt.cc:1072 Getting Default Adapter failed.

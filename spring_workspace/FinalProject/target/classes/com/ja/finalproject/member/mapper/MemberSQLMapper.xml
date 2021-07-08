@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+	namespace="com.ja.finalproject.member.mapper.MemberSQLMapper">
+	<insert id="joinMember">
+		INSERT INTO FP_Member VALUES(
+		FP_Member_seq.nextval,
+		#{member_id},
+		#{member_pw},
+		#{member_nick},
+		#{member_gender},
+		#{member_birth},
+		#{member_phone},
+		#{member_email},
+		SYSDATE)
+	</insert>
+	
+	<select id="getMemberByIdAndPw" resultType="com.ja.finalproject.vo.MemberVO">
+	SELECT * FROM FP_Member
+	WHERE member_id = #{member_id}
+	AND member_pw = #{member_pw}
+	</select>
+</mapper>

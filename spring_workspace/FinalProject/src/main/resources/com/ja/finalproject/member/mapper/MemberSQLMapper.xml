@@ -18,8 +18,13 @@
 	</insert>
 	
 	<select id="getMemberByIdAndPw" resultType="com.ja.finalproject.vo.MemberVO">
-	SELECT * FROM FP_Member
-	WHERE member_id = #{member_id}
-	AND member_pw = #{member_pw}
+		SELECT * FROM FP_Member
+		WHERE member_id = #{member_id}
+		AND member_pw = #{member_pw}
 	</select>
+	
+	<select id="getMemberByNo" resultType="com.ja.finalproject.vo.MemberVO">
+		SELECT * FROM FP_Member WHERE member_no = #{no}
+	</select>
+	
 </mapper>

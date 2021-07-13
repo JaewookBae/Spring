@@ -2,8 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+<<<<<<< HEAD
 <mapper
 	namespace="com.ja.finalproject.board.mapper.BoardSQLMapper">
+=======
+<mapper namespace="com.ja.finalproject.board.mapper.BoardSQLMapper">
+>>>>>>> 9d0de95df9bce7cac0f6d41a5bb747213a9e0a1a
 
 	<insert id="writeContent">
 		INSERT INTO FP_Board VALUES(
@@ -15,6 +19,7 @@
 		SYSDATE
 		)<!-- 세미콜론 절대 금지 -->
 	</insert>
+<<<<<<< HEAD
 
 	<select id="getContents"
 		resultType="com.ja.finalproject.vo.BoardVO">
@@ -41,4 +46,11 @@
 		set board_readcount = board_readcount + 1 
 		where board_no = #{board_no}
 	</update>
+=======
+	
+	<select id="getContents" resultType="com.ja.finalproject.vo.BoardVO">
+		SELECT * FROM FP_Board ORDER BY board_no DESC
+	</select>
+	
+>>>>>>> 9d0de95df9bce7cac0f6d41a5bb747213a9e0a1a
 </mapper>

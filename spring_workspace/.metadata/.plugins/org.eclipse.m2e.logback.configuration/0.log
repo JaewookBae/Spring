@@ -2830,6 +2830,7 @@ Caused by: org.eclipse.core.runtime.CoreException: One or more constraints have 
 2021-07-09 16:25:01,685 [Worker-11: Building] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of TestSpringApi
 2021-07-09 16:25:01,685 [Worker-11: Building] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for TestSpringApi
 2021-07-09 16:25:01,688 [Worker-11: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+<<<<<<< HEAD
 2021-07-12 11:17:12,938 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
 2021-07-12 11:17:25,943 [Worker-10: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
 2021-07-12 11:17:25,960 [Worker-10: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
@@ -3468,3 +3469,5 @@ java.io.FileNotFoundException: C:\Springspace\spring_workspace\.metadata\.plugin
 2021-07-13 09:46:55,132 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
 2021-07-13 09:46:55,135 [Worker-40: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
 2021-07-13 09:46:55,136 [Worker-40: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+=======
+>>>>>>> 9d0de95df9bce7cac0f6d41a5bb747213a9e0a1a

@@ -11,6 +11,7 @@ public interface BoardSQLMapper {
 	
 	//select
 	public ArrayList<BoardVO> getContents();
+<<<<<<< HEAD
 
 	public BoardVO getContentByNO(int board_no);
 	
@@ -23,4 +24,6 @@ public interface BoardSQLMapper {
 	//조회수 증가
 	public void increaseReadCount(int board_no);
 	
+=======
+>>>>>>> 9d0de95df9bce7cac0f6d41a5bb747213a9e0a1a
 }

@@ -48,6 +48,7 @@ public class BoardServiceImpl {
 		return list;
 	}
 	
+<<<<<<< HEAD
 	public HashMap<String, Object> getContent(int board_no) {
 		
 		//조회수 증가
@@ -65,4 +66,6 @@ public class BoardServiceImpl {
 		return map;
 	}
 	
+=======
+>>>>>>> 9d0de95df9bce7cac0f6d41a5bb747213a9e0a1a
 }

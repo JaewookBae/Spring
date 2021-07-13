@@ -14,6 +14,7 @@ import com.ja.finalproject.board.service.BoardServiceImpl;
 import com.ja.finalproject.vo.BoardVO;
 import com.ja.finalproject.vo.MemberVO;
 
+
 @Controller
 @RequestMapping("/board/*")
 public class BoardController {
@@ -49,6 +50,46 @@ public class BoardController {
 		boardService.writeContent(param);
 		
 		return "redirect:./mainPage.do";
+	}
+	
+	@RequestMapping("readContentPage.do")
+	public String readContentPage(int board_no, Model model) {
+		
+		//조회수 증가
+		boardService.increaseReadCount(board_no);
+		
+		//조회
+		HashMap<String, Object>  map = boardService.getContent(board_no);
+		
+		model.addAttribute("content", map);
+		
+		return "board/readContentPage";
+	}
+	
+	@RequestMapping("delelteContentProcess.do")
+	public String deleteContentProcess(int board_no) {
+		
+		boardService.deleteContent(board_no);
+		
+		return "redirect:./mainPage.do";
+	}
+	
+	@RequestMapping("updateContentPage.do")
+	public String updateContentPage(int board_no, Model model) {
+		
+		HashMap<String, Object>  map = boardService.getContent(board_no);
+		
+		model.addAttribute("content", map);
+		
+		return"board/updateContentPage";
+	}
+	
+	@RequestMapping("updateContentProcess.do")
+	public String updateContentProcess(BoardVO param) {
+		
+		boardService.updateContent(param);
+		
+		return "redirect:./readContentPage.do?board_no=" + param.getBoard_no();
 	}
 }
 

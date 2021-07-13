@@ -2,12 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<<<<<<< HEAD
-<mapper
-	namespace="com.ja.finalproject.board.mapper.BoardSQLMapper">
-=======
 <mapper namespace="com.ja.finalproject.board.mapper.BoardSQLMapper">
->>>>>>> 9d0de95df9bce7cac0f6d41a5bb747213a9e0a1a
 
 	<insert id="writeContent">
 		INSERT INTO FP_Board VALUES(
@@ -19,38 +14,29 @@
 		SYSDATE
 		)<!-- 세미콜론 절대 금지 -->
 	</insert>
-<<<<<<< HEAD
-
-	<select id="getContents"
-		resultType="com.ja.finalproject.vo.BoardVO">
-		SELECT * FROM FP_Board ORDER BY board_no DESC
-	</select>
-
-	<select id="getContentByNO"
-		resultType="com.ja.finalproject.vo.BoardVO">
-		select * from FP_Board where board_no= #{board_no}
-	</select>
-
-	<delete id="deleteContent">
-		delete from FP_Board where board_no = #{board_no}
-	</delete>
-
-	<update id="updateContent">
-		update FP_Board set board_title = #{board_title} ,
-		board_content = #{board_content}
-		where board_no = #{board_no}
-	</update>
-	
-	<update id="increaseReadCount">
-		update FP_Board 
-		set board_readcount = board_readcount + 1 
-		where board_no = #{board_no}
-	</update>
-=======
 	
 	<select id="getContents" resultType="com.ja.finalproject.vo.BoardVO">
 		SELECT * FROM FP_Board ORDER BY board_no DESC
 	</select>
 	
->>>>>>> 9d0de95df9bce7cac0f6d41a5bb747213a9e0a1a
+	<select id="getContentByNO" resultType="com.ja.finalproject.vo.BoardVO">
+		select * from FP_Board where board_no= #{board_no}
+	</select>
+	
+	<delete id="deleteContent">
+		DELETE FROM fp_board WHERE board_no = #{board_no}
+	</delete>
+
+	<update id="updateContent">
+		UPDATE fp_board
+		set board_title = #{board_title} , board_content = #{board_content}
+		where
+		board_no = #{board_no}
+	</update>
+
+	<update id="increaseReadCount">
+		update fp_board set board_readcount = board_readcount +1
+		where board_no = #{board_no}
+	</update>
+	
 </mapper>

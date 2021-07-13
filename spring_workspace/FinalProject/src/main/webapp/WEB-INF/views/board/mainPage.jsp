@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,10 +36,10 @@
 		<c:forEach items="${contentlist }" var="data">
 			<tr>
 				<td>${data.boardVO.board_no }</td>
-				<td>${data.boardVO.board_title }</td>
+				<td><a href ="./readContentPage.do?board_no=${data.boardVO.board_no }">${data.boardVO.board_title }</a></td>
 				<td>${data.memberVO.member_nick }</td>
 				<td>${data.boardVO.board_readcount }</td>
-				<td>${data.boardVO.board_writedate }</td>
+				<td><fmt:formatDate value="${data.boardVO.board_writedate }" pattern="yyyy. MM-dd"/></td>
 			</tr>
 		</c:forEach>
 	</table>
@@ -46,15 +47,7 @@
 	
 	<c:if test="${!empty sessionUser }">
 		<a href="./writeContentPage.do">글쓰기</a>
-	</c:if>
-	
-	
-	
-	
-	
-	
-	
-	
+	</c:if>	
 	
 	
 </body>

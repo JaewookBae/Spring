@@ -23,8 +23,8 @@
 	
 	<a href="./mainPage.do">목록으로</a>
 	<c:if test="${!empty sessionUser && sessionUser.member_no == content.memberVO.member_no }">
-	<a href="delelteContentProcess.do">삭제</a>
-	<a href="updateContentPage.do">수정</a>
+	<a href="delelteContentProcess.do?board_no=${content.boardVO.board_no }">삭제</a>
+	<a href="updateContentPage.do?board_no=${content.boardVO.board_no }">수정</a>
 	</c:if>
 </body>
 </html>

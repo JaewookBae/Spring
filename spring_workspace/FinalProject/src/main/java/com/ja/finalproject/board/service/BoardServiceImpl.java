@@ -48,12 +48,8 @@ public class BoardServiceImpl {
 		return list;
 	}
 	
-<<<<<<< HEAD
 	public HashMap<String, Object> getContent(int board_no) {
 		
-		//조회수 증가
-		boardSQLMapper.increaseReadCount(board_no);
-		//
 		BoardVO boardVO = boardSQLMapper.getContentByNO(board_no);
 		int member_no = boardVO.getMember_no();
 		MemberVO memberVO = memberSQLMapper.getMemberByNo(member_no);
@@ -66,6 +62,15 @@ public class BoardServiceImpl {
 		return map;
 	}
 	
-=======
->>>>>>> 9d0de95df9bce7cac0f6d41a5bb747213a9e0a1a
+	public void increaseReadCount(int board_no) {
+		boardSQLMapper.increaseReadCount(board_no);
+	}
+	
+	public void deleteContent(int board_no) {
+		boardSQLMapper.deleteContent(board_no);
+	}
+	
+	public void updateContent(BoardVO vo) {
+		boardSQLMapper.updateContent(vo);
+	}
 }

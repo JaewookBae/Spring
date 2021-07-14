@@ -3,6 +3,7 @@ package com.ja.finalproject.board.service;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.apache.commons.text.StringEscapeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -51,6 +52,18 @@ public class BoardServiceImpl {
 	public HashMap<String, Object> getContent(int board_no) {
 		
 		BoardVO boardVO = boardSQLMapper.getContentByNO(board_no);
+		
+		//html escape
+		String content = boardVO.getBoard_content();
+		System.out.println("[변환 전 테스트]" + content);
+		
+		content = StringEscapeUtils.escapeHtml4(content); 
+		System.out.println("[변환 후 테스트]" + content);		
+		content = content.replaceAll("\n", "<br>");
+		
+		boardVO.setBoard_content(content);
+		
+		
 		int member_no = boardVO.getMember_no();
 		MemberVO memberVO = memberSQLMapper.getMemberByNo(member_no);
 		

@@ -4,9 +4,14 @@
 
 <mapper
 	namespace="com.ja.finalproject.member.mapper.MemberSQLMapper">
+	
+	<select id="createMemberPK" resultType="int">
+		select FP_Member_seq.nextval from Dual
+	</select>
+	
 	<insert id="joinMember">
 		INSERT INTO FP_Member VALUES(
-		FP_Member_seq.nextval,
+		#{member_no},
 		#{member_id},
 		#{member_pw},
 		#{member_nick},
@@ -27,4 +32,18 @@
 		SELECT * FROM FP_Member WHERE member_no = #{no}
 	</select>
 	
+	<!-- 카테고리 관련 -->
+	
+	<select id="getCategoryList" resultType="com.ja.finalproject.vo.HobbyCategoryVO">
+		select * from FP_Hobby_Category order by hobby_category_no asc
+	</select>
+	
+	<!-- hobby 관련 -->
+	<insert id="registerHobby">
+		INSERT INTO FP_Hobby VALUES(
+		FP_Hobby_seq.nextval, 
+		#{member_no}, 
+		#{hobby_category_no}
+		)
+	</insert>
 </mapper>

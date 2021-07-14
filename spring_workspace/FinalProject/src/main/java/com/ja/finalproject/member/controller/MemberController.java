@@ -1,13 +1,17 @@
 package com.ja.finalproject.member.controller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ja.finalproject.member.mapper.MemberSQLMapper;
 import com.ja.finalproject.member.service.MemberServiceImpl;
+import com.ja.finalproject.vo.HobbyCategoryVO;
 import com.ja.finalproject.vo.MemberVO;
 
 @Controller
@@ -27,19 +31,19 @@ public class MemberController {
 	}
 	
 	@RequestMapping("joinMemberPage.do")
-	public String joinMemberPage() {
+	public String joinMemberPage(Model model) {
+		
+		ArrayList<HobbyCategoryVO> list =  memberService.getHobbyCategoryList();
+		
+		model.addAttribute("hobbyCategoryList", list);
 		
 		return "member/joinMemberPage";
 	}
 	
 	@RequestMapping("joinMemberProcess.do")
-	public String joinMemberProcess(MemberVO param) {
+	public String joinMemberProcess(MemberVO param, int [] hobby_category_no) {
 		
-		//memberSQLMapper.joinMember(param);
-		memberService.joinMember(param);
-		
-		//System.out.println("[test]" + param.getMember_id());
-		//System.out.println("[test]" + param.getMember_nick());
+		memberService.joinMember(param, hobby_category_no);
 		
 		return "member/joinMemberComplete";
 	}

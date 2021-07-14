@@ -8,7 +8,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-	<div style="width:1200px">
+	<div style="width:1200px; margin: 0 auto">
 		<div class="container-fluid">
 			<div class="row mt-5">
 				<div class="col"></div>

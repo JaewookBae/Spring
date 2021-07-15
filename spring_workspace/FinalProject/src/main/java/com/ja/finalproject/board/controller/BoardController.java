@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ja.finalproject.board.service.BoardServiceImpl;
 import com.ja.finalproject.vo.BoardVO;
@@ -23,10 +24,40 @@ public class BoardController {
 	private BoardServiceImpl boardService; 
 	
 	@RequestMapping("mainPage.do")
-	public String mainPage(Model model) {
+	public String mainPage(
+			Model model, 
+			String search_word, 
+			String search_type, 
+			@RequestParam(defaultValue = "1") int page_num) {
 		// 할 것 참 많음...
 		
-		ArrayList<HashMap<String, Object>> contentlist = boardService.getContents();
+		ArrayList<HashMap<String, Object>> contentlist = boardService.getContents(search_type, search_word,page_num);
+		
+		int count = boardService.getContentCount(search_type, search_word, page_num);
+		
+		int totalPageCount = (int)Math.ceil(count/10.0);
+		int currentPage = page_num;
+		
+		int beginPage = ((currentPage-1)/5) * 5 + 1;
+		int endPage = ((currentPage-1)/5 + 1) * (5);
+		
+		if(endPage > totalPageCount) {
+			endPage = totalPageCount;
+		}
+		
+		String addParam = "";
+
+		if(search_type != null && search_word != null) {
+			addParam += "&search_type=" + search_type;
+			addParam += "&search_word=" + search_word;
+		}
+		
+		model.addAttribute("addParam", addParam);
+		
+		model.addAttribute("currentPage", currentPage);
+		model.addAttribute("beginPage", beginPage);
+		model.addAttribute("endPage", endPage);
+		model.addAttribute("totalPageCount", totalPageCount);
 		
 		model.addAttribute("contentlist", contentlist);
 		

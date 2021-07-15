@@ -20,21 +20,23 @@
 				<div class="row mt-5"><!-- 배너 -->
 					<div class="col">배너 공간</div>
 				</div>
+				<form action="./mainPage.do" method="get">
 				<div class="row mt-2"><!-- 검색 -->
 					<div class="col">
-						<select class="form-select">
-							<option>제목</option>
-							<option>내용</option>
-							<option>닉네임</option>
+						<select name="search_type" class="form-select">
+							<option value="title">제목</option>
+							<option value="content">내용</option>
+							<option value="nick">닉네임</option>
 						</select>
 					</div>
 					<div class="col-8">
-						<input type="text" class="form-control">
+						<input name="search_word" type="text" class="form-control">
 					</div>
 					<div class="col d-grid">
-						<input type="button" value="검색" class="btn btn-primary">
+						<input type="submit" value="검색" class="btn btn-primary">
 					</div>
 				</div>
+				</form>
 				<div class="row mt-3"><!-- 데이터 로우 -->
 					<div class="col">
 						<table class="table">
@@ -60,15 +62,36 @@
 				<div class="row mt-2"><!-- 페이징 및 글쓰기 버튼 -->
 					<div class="col-2"></div>
 					<div class="col">
-						<nav>
+						<nav aria-label="Page navigation example">
   							<ul class="pagination mb-0">
-    						<li class="page-item"><a class="page-link" href="#">&lt;</a></li>
-						    <li class="page-item"><a class="page-link" href="#">1</a></li>
-						    <li class="page-item"><a class="page-link" href="#">2</a></li>
-						    <li class="page-item active"><a class="page-link" href="#">3</a></li>
-						    <li class="page-item"><a class="page-link" href="#">4</a></li>
-						    <li class="page-item"><a class="page-link" href="#">5</a></li>
-						    <li class="page-item"><a class="page-link" href="#">&gt;</a></li>
+  							<c:choose>
+  								<c:when test="${beginPage <=1 }">
+		    						<li class="page-item disabled"><a class="page-link" href="./mainPage.do?page_num=${beginPage -1 }${addParam}">&lt;</a></li>  									
+  								</c:when>
+  								<c:otherwise>
+		    						<li class="page-item"><a class="page-link" href="./mainPage.do?page_num=${beginPage -1 }${addParam}">&lt;</a></li>  									  								
+  								</c:otherwise>
+  							</c:choose>
+  							
+     						<c:forEach begin="${beginPage }" end="${endPage }" var="i">
+    						<c:choose>
+    							<c:when test="${currentPage == i }">
+						    		<li class="page-item active"><a class="page-link" href="./mainPage.do?page_num=${i}${addParam}">${i}</a></li>    							    								    							
+    							</c:when>
+    							<c:otherwise>
+						    		<li class="page-item"><a class="page-link" href="./mainPage.do?page_num=${i}${addParam}">${i}</a></li>    							    								
+    							</c:otherwise>
+    						</c:choose>
+    						</c:forEach>
+    						<c:choose>
+    							<c:when test="${endPage >= totalPageCount }">
+    								<li class="page-item disabled"><a class="page-link" href="./mainPage.do?page_num=${endPage +1 }${addParam}">&gt;</a></li>	
+    							</c:when>
+    							<c:otherwise>
+    								<li class="page-item"><a class="page-link" href="./mainPage.do?page_num=${endPage +1 }${addParam}">&gt;</a></li>
+    							</c:otherwise>
+    						</c:choose>
+    						
 						  	</ul>
 						</nav>
 					</div>

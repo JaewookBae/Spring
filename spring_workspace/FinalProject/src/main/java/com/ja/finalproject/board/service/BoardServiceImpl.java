@@ -26,13 +26,13 @@ public class BoardServiceImpl {
 		
 	}
 	
-	public ArrayList<HashMap<String, Object>> getContents() {
+	public ArrayList<HashMap<String, Object>> getContents(String search_type, String search_word, int page_num) {
 		
 		// 자료 구조의 활용..메모리 관리의 중요한 내용..체크 해두기!!!
 		
 		ArrayList<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
 		
-		ArrayList<BoardVO> boardlist = boardSQLMapper.getContents();
+		ArrayList<BoardVO> boardlist = boardSQLMapper.getContents(search_type, search_word, page_num);
 		
 		for(BoardVO boardVO : boardlist) {
 			
@@ -47,6 +47,13 @@ public class BoardServiceImpl {
 			list.add(map);
 		}
 		return list;
+	}
+	
+	public int getContentCount(String search_type, String search_word, int page_num) {
+		
+		int count = boardSQLMapper.getContentCount(search_type, search_word, page_num);
+		
+		return count;
 	}
 	
 	public HashMap<String, Object> getContent(int board_no) {

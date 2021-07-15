@@ -15,9 +15,53 @@
 		)<!-- 세미콜론 절대 금지 -->
 	</insert>
 	
+	
+	<!-- 동적 쿼리 -->
 	<select id="getContents" resultType="com.ja.finalproject.vo.BoardVO">
-		SELECT * FROM FP_Board ORDER BY board_no DESC
+	SELECT * FROM (
+		SELECT t1.*, ROWNUM as rnum FROM(
+			SELECT FP_Board.* FROM FP_Board, FP_Member
+			WHERE FP_Board.member_no = FP_Member.member_no 
+			<if test="search_type != null and search_word != null">
+				<choose>
+					<when test="search_type == 'title'">
+						AND FP_Board.board_title LIKE '%' || #{search_word} || '%'
+					</when>
+					<when test="search_type == 'content'">
+						AND FP_Board.board_content LIKE '%' || #{search_word} || '%'
+					</when>
+					<when test="search_type == 'nick'">
+						AND FP_Member.member_nick LIKE '%' || #{search_word} || '%'
+					</when>
+				</choose>
+			</if>
+			ORDER BY FP_Board.board_no DESC
+		) t1
+	) t2
+	<![CDATA[
+	WHERE t2.rnum >= (#{page_num} -1)*10+1
+	AND t2.rnum <= #{page_num}*10	
+	]]>
 	</select>
+	
+	<select id="getContentCount" resultType="int">
+		SELECT count(*) FROM FP_Board, FP_Member
+		WHERE FP_Board.member_no = FP_Member.member_no 
+			<if test="search_type != null and search_word != null">
+				<choose>
+					<when test="search_type == 'title'">
+						AND FP_Board.board_title LIKE '%' || #{search_word} || '%'
+					</when>
+					<when test="search_type == 'content'">
+						AND FP_Board.board_content LIKE '%' || #{search_word} || '%'
+					</when>
+					<when test="search_type == 'nick'">
+						AND FP_Member.member_nick LIKE '%' || #{search_word} || '%'
+					</when>
+				</choose>
+			</if>
+	</select>
+	
 	
 	<select id="getContentByNO" resultType="com.ja.finalproject.vo.BoardVO">
 		select * from FP_Board where board_no= #{board_no}

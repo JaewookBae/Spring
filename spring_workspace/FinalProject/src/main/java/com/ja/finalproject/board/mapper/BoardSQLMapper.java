@@ -4,10 +4,14 @@ import java.util.ArrayList;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.ja.finalproject.vo.BoardImageVO;
 import com.ja.finalproject.vo.BoardVO;
 
 public interface BoardSQLMapper {
 
+	//create primary key
+	public int createBoardPK();
+	
 	// insert querry
 	public void writeContent(BoardVO vo);
 
@@ -34,4 +38,10 @@ public interface BoardSQLMapper {
 
 	// 조회수 증가
 	public void increaseReadCount(int board_no);
+	
+	//이미지 관련
+	//이미지 등록
+	public void registerImage(BoardImageVO vo);
+	
+	public ArrayList<BoardImageVO> getImageInfoByBoardNo(int board_no);	
 }

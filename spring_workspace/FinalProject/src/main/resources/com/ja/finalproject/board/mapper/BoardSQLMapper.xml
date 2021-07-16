@@ -4,9 +4,13 @@
 
 <mapper namespace="com.ja.finalproject.board.mapper.BoardSQLMapper">
 
+	<select id="createBoardPK" resultType="int">
+		select FP_Board_seq.nextval from dual
+	</select>
+
 	<insert id="writeContent">
 		INSERT INTO FP_Board VALUES(
-		FP_Board_seq.nextval,
+		#{board_no},
 		#{member_no},
 		#{board_title},
 		#{board_content},
@@ -82,5 +86,21 @@
 		update fp_board set board_readcount = board_readcount +1
 		where board_no = #{board_no}
 	</update>
+	
+	<!-- 이미지 관련 -->
+	<insert id="registerImage">
+		insert into FP_BoardImage values(
+	    FP_BoardImage_seq.nextval,
+	    #{board_no},
+	    #{image_url},
+	    #{image_ori}
+		)   
+	</insert>
+	
+	<select id="getImageInfoByBoardNo" resultType="com.ja.finalproject.vo.BoardImageVO">
+		select * from FP_BoardImage
+		where board_no = #{board_no}
+		order by image_no asc	
+	</select>
 	
 </mapper>

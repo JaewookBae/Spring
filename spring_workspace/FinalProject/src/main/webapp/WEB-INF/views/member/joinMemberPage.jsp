@@ -9,6 +9,7 @@
 </head>
 <body>
 	<h1>회원 가입</h1>
+	
 	<form action="./joinMemberProcess.do" method="post">
 		ID : <input type="text" name="member_id"><br>
 		PW : <input type="password" name="member_pw"><br>

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.ja.finalproject.vo.HobbyCategoryVO;
 import com.ja.finalproject.vo.HobbyVO;
+import com.ja.finalproject.vo.MailAuthVO;
 import com.ja.finalproject.vo.MemberVO;
 
 public interface MemberSQLMapper {
@@ -20,4 +21,9 @@ public interface MemberSQLMapper {
 	public ArrayList<HobbyCategoryVO> getCategoryList();
 	
 	public void registerHobby(HobbyVO vo);
+	
+	//메일 인증 관련
+	public void createMailAuthInfo(MailAuthVO vo);
+	
+	public void certifyMail(String mailauth_key);
 }

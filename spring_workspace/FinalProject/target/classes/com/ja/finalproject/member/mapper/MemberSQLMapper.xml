@@ -4,11 +4,12 @@
 
 <mapper
 	namespace="com.ja.finalproject.member.mapper.MemberSQLMapper">
-	
+
 	<select id="createMemberPK" resultType="int">
-		select FP_Member_seq.nextval from Dual
+		select
+		FP_Member_seq.nextval from Dual
 	</select>
-	
+
 	<insert id="joinMember">
 		INSERT INTO FP_Member VALUES(
 		#{member_no},
@@ -21,29 +22,56 @@
 		#{member_email},
 		SYSDATE)
 	</insert>
-	
-	<select id="getMemberByIdAndPw" resultType="com.ja.finalproject.vo.MemberVO">
-		SELECT * FROM FP_Member
-		WHERE member_id = #{member_id}
-		AND member_pw = #{member_pw}
+
+	<select id="getMemberByIdAndPw"
+		resultType="com.ja.finalproject.vo.MemberVO">
+		select * from FP_Member , FP_MailAuth
+		where fp_mailauth.member_no = fp_member.member_no
+		and member_id = #{member_id}
+		and member_pw = #{member_pw}
+		and FP_MailAuth.mailauth_complete = 'Y'
 	</select>
-	
-	<select id="getMemberByNo" resultType="com.ja.finalproject.vo.MemberVO">
+
+	<select id="getMemberByNo"
+		resultType="com.ja.finalproject.vo.MemberVO">
 		SELECT * FROM FP_Member WHERE member_no = #{no}
 	</select>
-	
+
 	<!-- 카테고리 관련 -->
-	
-	<select id="getCategoryList" resultType="com.ja.finalproject.vo.HobbyCategoryVO">
-		select * from FP_Hobby_Category order by hobby_category_no asc
+
+	<select id="getCategoryList"
+		resultType="com.ja.finalproject.vo.HobbyCategoryVO">
+		select * from FP_Hobby_Category order by hobby_category_no
+		asc
 	</select>
-	
+
 	<!-- hobby 관련 -->
 	<insert id="registerHobby">
 		INSERT INTO FP_Hobby VALUES(
-		FP_Hobby_seq.nextval, 
-		#{member_no}, 
+		FP_Hobby_seq.nextval,
+		#{member_no},
 		#{hobby_category_no}
 		)
 	</insert>
+
+	<!-- 메일 인증 T -->
+	<insert id="createMailAuthInfo">
+		insert into FP_MailAuth values(
+		FP_MailAuth_seq.nextval,
+		#{member_no},
+		#{mailauth_key},
+		'N',
+		null
+		)
+	</insert>
+
+	<update id="certifyMail">
+		update FP_MailAuth
+		set mailauth_complete = 'Y',
+		mailauth_date = sysdate
+		where mailauth_key = #{mailauth_key}
+	</update>
+
 </mapper>
+
+

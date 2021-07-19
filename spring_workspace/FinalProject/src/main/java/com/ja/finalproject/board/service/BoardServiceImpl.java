@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.ja.finalproject.board.mapper.BoardSQLMapper;
 import com.ja.finalproject.member.mapper.MemberSQLMapper;
+import com.ja.finalproject.vo.BoardImageVO;
 import com.ja.finalproject.vo.BoardVO;
 import com.ja.finalproject.vo.MemberVO;
 
@@ -20,10 +21,18 @@ public class BoardServiceImpl {
 	@Autowired
 	private MemberSQLMapper memberSQLMapper;
 	
-	public void writeContent(BoardVO vo) {
+	public void writeContent(BoardVO vo, ArrayList<BoardImageVO> boardImageVOList) {
 		
+		int board_no = boardSQLMapper.createBoardPK();
+		
+		vo.setBoard_no(board_no);		
 		boardSQLMapper.writeContent(vo);
 		
+		for(BoardImageVO boardImageVO : boardImageVOList) {
+			
+			boardImageVO.setBoard_no(board_no);
+			boardSQLMapper.registerImage(boardImageVO);
+		}
 	}
 	
 	public ArrayList<HashMap<String, Object>> getContents(String search_type, String search_word, int page_num) {
@@ -74,11 +83,14 @@ public class BoardServiceImpl {
 		int member_no = boardVO.getMember_no();
 		MemberVO memberVO = memberSQLMapper.getMemberByNo(member_no);
 		
+		ArrayList<BoardImageVO> boardImageVOList = 
+				boardSQLMapper.getImageInfoByBoardNo(board_no);
+			
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		
 		map.put("memberVO", memberVO);
 		map.put("boardVO", boardVO);
-	
+		map.put("boardImageVOList", boardImageVOList);
 		return map;
 	}
 	

@@ -60,3 +60,12 @@
 7월 15, 2021 09:16:30.262 NEW SESSION
 7월 15, 2021 09:16:30.262 [13936:11072:0715/091630.259:ERROR:device_event_log_impl.cc(214)] [09:16:30.258] USB: usb_device_handle_win.cc:1058 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
 7월 15, 2021 09:16:30.263 [13936:11072:0715/091630.261:ERROR:device_event_log_impl.cc(214)] [09:16:30.260] USB: usb_device_handle_win.cc:1058 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+
+7월 16, 2021 09:20:20.715 NEW SESSION
+7월 16, 2021 09:20:20.715 [7796:11464:0716/092020.707:ERROR:device_event_log_impl.cc(214)] [09:20:20.708] USB: usb_device_handle_win.cc:1058 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+7월 16, 2021 09:20:20.716 [7796:11464:0716/092020.710:ERROR:device_event_log_impl.cc(214)] [09:20:20.710] USB: usb_device_handle_win.cc:1058 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+7월 16, 2021 10:58:03.214 [7796:2484:0716/105803.213:ERROR:mcs_client.cc(755)] Received close command, resetting connection.
+
+7월 19, 2021 09:03:28.539 NEW SESSION
+7월 19, 2021 09:03:28.539 [13040:3544:0719/090328.536:ERROR:device_event_log_impl.cc(214)] [09:03:28.535] USB: usb_device_handle_win.cc:1058 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+7월 19, 2021 09:03:28.540 [13040:3544:0719/090328.538:ERROR:device_event_log_impl.cc(214)] [09:03:28.538] USB: usb_device_handle_win.cc:1058 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)

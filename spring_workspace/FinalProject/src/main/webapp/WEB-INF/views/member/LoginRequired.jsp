@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	아이디 & 비밀번호 또는 메일 인증을 확인해주세요.<br>
-	<a href="./loginPage.do">로그인 페이지</a>
+	현재 페이지는 로그인 하셔야 이용 가능합니다.<br>
+	<a href="../member/loginPage.do">로그인 페이지로</a>
 </body>
 </html>

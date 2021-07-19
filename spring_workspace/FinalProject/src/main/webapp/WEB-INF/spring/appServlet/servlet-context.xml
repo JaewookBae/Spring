@@ -21,6 +21,30 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	<!-- ja : 업로드 관련 인스턴스 추가 -->
+	<beans:bean id="multipartResolver"
+	class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="100000000"></beans:property>
+	</beans:bean>
+	
+	<!-- ja : 인터셉터 추가 -->
+	<interceptors>
+		<interceptor>
+			<!--
+			<mapping path="/**/*.do"/>
+			<exclude-mapping path="/member/loginPage.do"/>
+			<exclude-mapping path="/member/loginProcess.do"/>
+			<exclude-mapping path="/member/joinMemberPage.do"/>
+			-->
+			<mapping path="/board/writeContentPage.do"/>
+			<mapping path="/board/writeContentProcess.do"/>
+			<mapping path="/board/updateContentPage.do"/>
+			<mapping path="/board/updateContentProcess.do"/>
+			<beans:bean class="com.ja.finalproject.intercepter.AuthIntercepter"></beans:bean>
+			
+		</interceptor>
+	</interceptors>
+	
 	<!-- ja : 수정 -->
 	<context:component-scan base-package="com.ja.finalproject.*.controller" />
 	

@@ -6594,6 +6594,7 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-16 16:31:01.643
 !MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+<<<<<<< HEAD
 !SESSION 2021-07-19 08:56:11.577 -----------------------------------------------
 eclipse.buildId=3.9.15.202012140755-RELEASE-e416
 java.version=1.8.0_291
@@ -7985,3 +7986,5 @@ java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2021-07-19 16:44:33.540
 !MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+=======
+>>>>>>> a924593ec536676fd6509fd8e8b5a3f9a29f4af9

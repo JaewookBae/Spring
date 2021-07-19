@@ -27,6 +27,7 @@
 		<beans:property name="maxUploadSize" value="100000000"></beans:property>
 	</beans:bean>
 	
+<<<<<<< HEAD
 	<!-- ja : 인터셉터 추가 -->
 	<interceptors>
 		<interceptor>
@@ -45,6 +46,8 @@
 		</interceptor>
 	</interceptors>
 	
+=======
+>>>>>>> a924593ec536676fd6509fd8e8b5a3f9a29f4af9
 	<!-- ja : 수정 -->
 	<context:component-scan base-package="com.ja.finalproject.*.controller" />
 	

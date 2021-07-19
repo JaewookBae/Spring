@@ -43,7 +43,11 @@
 	</c:if>
 	
 	<hr>
+<<<<<<< HEAD
 	<c:if test="${!empty sessionUser }">
+=======
+	<c:if test="${!empty sessionUser.member_nick }">
+>>>>>>> a924593ec536676fd6509fd8e8b5a3f9a29f4af9
 	<form>
 		리플 : ${sessionUser.member_nick }<br>
 		<textarea rows="4" cols="40"></textarea>

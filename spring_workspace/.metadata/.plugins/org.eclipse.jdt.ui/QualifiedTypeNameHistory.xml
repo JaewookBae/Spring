@@ -2,6 +2,11 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+<<<<<<< HEAD
+=======
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+<fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
+>>>>>>> a924593ec536676fd6509fd8e8b5a3f9a29f4af9
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
@@ -25,6 +30,7 @@
 <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Param"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
 <fullyQualifiedTypeName name="java.lang.Math"/>
+<<<<<<< HEAD
 <fullyQualifiedTypeName name="com.ja.finalproject.commons.MessageDigestUtil"/>
 <fullyQualifiedTypeName name="org.springframework.mail.javamail.JavaMailSender"/>
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
@@ -43,4 +49,6 @@
 <fullyQualifiedTypeName name="com.ja.finalproject.vo.MemberVO"/>
 <fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
 <fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndViewDefiningException"/>
+=======
+>>>>>>> a924593ec536676fd6509fd8e8b5a3f9a29f4af9
 </qualifiedTypeNameHistroy>
